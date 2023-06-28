@@ -1,6 +1,22 @@
+  //write you code her
 function minDate(dates) {
-  //write you code here
+  // Create a new array to avoid modifying the input array
+  const parsedDates = dates.map(dateStr => new Date(dateStr));
+
+  // Find the minimum date using the Math.min function and spread syntax
+  const minDate = new Date(Math.min(...parsedDates));
+
+  // Format the minimum date as "YYYY/MM/DD"
+  const formattedDate = `${minDate.getFullYear()}/${padZero(minDate.getMonth() + 1)}/${padZero(minDate.getDate())}`;
+
+  return formattedDate;
 }
+
+// Utility function to pad a number with leading zeros
+function padZero(num) {
+  return num.toString().padStart(2, '0');
+}
+
 
 // Do not change the code
 
